@@ -2,18 +2,18 @@ package br.com.zupacademy.caio.casadocodigo.exception;
 
 public class ExceptionDto {
     private final String field;
-    private final String error;
+    private final String message;
 
-    public ExceptionDto(String field, String error) {
+    public ExceptionDto(String field, String message) {
         this.field = field;
-        this.error = error;
+        this.message = message;
     }
 
-    public String getCampo() {
+    public String getField() {
         return field;
     }
 
-    public String getError() {
-        return error;
+    public String getMessage() {
+        return message;
     }
 }

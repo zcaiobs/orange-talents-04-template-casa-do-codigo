@@ -50,4 +50,14 @@ public class Autor {
     public Date getRegistro() {
         return registro;
     }
+
+    @Override
+    public String toString() {
+        return "Autor{" +
+                "nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", registro=" + registro +
+                '}';
+    }
 }

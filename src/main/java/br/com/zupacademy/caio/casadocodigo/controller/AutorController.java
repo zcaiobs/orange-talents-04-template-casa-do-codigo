@@ -1,5 +1,6 @@
 package br.com.zupacademy.caio.casadocodigo.controller;
 
+import br.com.zupacademy.caio.casadocodigo.domain.Autor;
 import br.com.zupacademy.caio.casadocodigo.domain.AutorRequest;
 import br.com.zupacademy.caio.casadocodigo.repository.AutorRepository;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class AutorController {
 
     @PostMapping("/autor")
     public ResponseEntity<String> cadastrar(@RequestBody @Valid AutorRequest request) {
-        autorRepository.save(request.toAutor());
-        return ResponseEntity.ok("Um novo autor foi criado");
+        Autor autor = autorRepository.save(request.toAutor());
+        return ResponseEntity.ok(autor.toString());
     }
 }

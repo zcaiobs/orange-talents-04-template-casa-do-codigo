@@ -29,7 +29,7 @@ public class ExceptionHandle {
         return exception.getBindingResult()
                 .getFieldErrors()
                 .stream()
-                .map(e -> new ExceptionDto(e.getField(), messageSource.getMessage(e, Locale.getDefault())))
+                .map(e -> new ExceptionDto(e.getField(), messageSource.getMessage(e, LocaleContextHolder.getLocale())))
                 .collect(Collectors.toList());
     }
 }
