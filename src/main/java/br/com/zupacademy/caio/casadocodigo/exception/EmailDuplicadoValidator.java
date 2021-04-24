@@ -27,7 +27,7 @@ public class EmailDuplicadoValidator implements Validator {
         }
         AutorRequest autorRequest = (AutorRequest) o;
         if(autorRepository.existsAutorByEmail(autorRequest.getEmail())){
-            errors.rejectValue("email", "", "Email já cadastrado");
+            errors.rejectValue("email", "", "Este email já foi cadastrado");
         }
     }
 }
