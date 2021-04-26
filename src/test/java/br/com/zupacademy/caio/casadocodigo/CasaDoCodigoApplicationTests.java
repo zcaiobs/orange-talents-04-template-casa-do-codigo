@@ -1,20 +1,30 @@
 package br.com.zupacademy.caio.casadocodigo;
 
+import br.com.zupacademy.caio.casadocodigo.domain.Categoria;
 import br.com.zupacademy.caio.casadocodigo.repository.AutorRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.Assert;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @SpringBootTest
 class CasaDoCodigoApplicationTests {
 
 	@Autowired
-	AutorRepository autorRepository;
+	EntityManager em;
 
 	@Test
-	void existsAutorByEmailTest() {
-		Assertions.assertThat(autorRepository.existsAutorByEmail("java@email.com")).isTrue();
+	void existsCategoriaByNomeTest() {
+		String value = "Java";
+		String field = "nome";
+		List<?> result = em.createQuery("select c from Categoria c where "+ field +" = :value", Categoria.class)
+				.setParameter("value", value)
+				.getResultList();
+		Assertions.assertThat(result.size()).isLessThan(1);
 	}
-
 }

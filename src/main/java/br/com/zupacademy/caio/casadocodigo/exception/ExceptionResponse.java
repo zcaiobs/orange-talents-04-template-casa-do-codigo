@@ -1,10 +1,10 @@
 package br.com.zupacademy.caio.casadocodigo.exception;
 
-public class ExceptionDto {
+public class ExceptionResponse {
     private final String field;
     private final String message;
 
-    public ExceptionDto(String field, String message) {
+    public ExceptionResponse(String field, String message) {
         this.field = field;
         this.message = message;
     }
