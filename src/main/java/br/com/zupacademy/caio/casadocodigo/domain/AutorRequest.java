@@ -9,22 +9,16 @@ import javax.validation.constraints.Size;
 public class AutorRequest {
 
     @NotBlank
-    private String nome;
+    private final String nome;
     @NotBlank @Email @UniqueValue(domainClass = Autor.class, fieldName = "email", message = "Este email já existe.")
-    private String email;
+    private final String email;
     @NotBlank @Size(max = 400)
-    private String descricao;
+    private final String descricao;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getDescricao() {
-        return descricao;
+    public AutorRequest(String nome, String email, String descricao) {
+        this.nome = nome;
+        this.email = email;
+        this.descricao = descricao;
     }
 
     public Autor toAutor() {
