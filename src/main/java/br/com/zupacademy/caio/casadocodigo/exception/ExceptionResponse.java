@@ -1,6 +1,7 @@
 package br.com.zupacademy.caio.casadocodigo.exception;
 
 public class ExceptionResponse {
+
     private final String field;
     private final String message;
 

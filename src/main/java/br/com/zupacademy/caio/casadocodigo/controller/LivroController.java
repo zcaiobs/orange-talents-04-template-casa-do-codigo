@@ -25,7 +25,7 @@ public class LivroController {
     }
 
     @PostMapping("/livros")
-    @CacheEvict(value = "listarLivros", allEntries = true)
+    @CacheEvict(value = {"listarLivros", "exibirLivro"}, allEntries = true)
     public ResponseEntity<?> cadastrar(@RequestBody @Valid LivroRequest livroRequest) {
         livroRepository.save(livroRequest.toLivro(categoriaRepository, autorRepository));
         return ResponseEntity.ok().build();

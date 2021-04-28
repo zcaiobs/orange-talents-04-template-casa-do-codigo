@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Categoria {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,6 +18,10 @@ public class Categoria {
     }
 
     public Categoria() {
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     @Override

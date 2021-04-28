@@ -9,6 +9,7 @@ import java.lang.annotation.*;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ExistsValue {
+
     String message() default "Nome de atributo não encontrado.";
     Class<?> [] groups() default {};
     Class<? extends Payload> [] payload() default {};
