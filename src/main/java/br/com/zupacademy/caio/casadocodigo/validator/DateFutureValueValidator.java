@@ -17,6 +17,6 @@ public class DateFutureValueValidator implements ConstraintValidator<DateFutureV
     public boolean isValid(Object value, ConstraintValidatorContext context) {
         Date future = (Date) value;
         long diff = new Date().getTime() - future.getTime();
-        return diff < 1;
+        return diff < 0;
     }
 }

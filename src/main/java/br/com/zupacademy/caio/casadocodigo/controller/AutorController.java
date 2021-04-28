@@ -17,9 +17,9 @@ public class AutorController {
         this.autorRepository = autorRepository;
     }
 
-    @PostMapping("/autor")
+    @PostMapping("/autores")
     public ResponseEntity<?> cadastrar(@RequestBody @Valid AutorRequest request) {
             Autor autor = autorRepository.save(request.toAutor());
-            return ResponseEntity.ok(autor.toString());
+            return ResponseEntity.ok().build();
     }
 }

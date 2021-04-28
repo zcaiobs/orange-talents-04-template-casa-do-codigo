@@ -4,11 +4,9 @@ import br.com.zupacademy.caio.casadocodigo.domain.LivroRequest;
 import br.com.zupacademy.caio.casadocodigo.repository.AutorRepository;
 import br.com.zupacademy.caio.casadocodigo.repository.CategoriaRepository;
 import br.com.zupacademy.caio.casadocodigo.repository.LivroRepository;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -26,9 +24,10 @@ public class LivroController {
         this.categoriaRepository = categoriaRepository;
     }
 
-    @PostMapping("/livro")
+    @PostMapping("/livros")
+    @CacheEvict(value = "listarLivros", allEntries = true)
     public ResponseEntity<?> cadastrar(@RequestBody @Valid LivroRequest livroRequest) {
         livroRepository.save(livroRequest.toLivro(categoriaRepository, autorRepository));
-        return ResponseEntity.ok().body("Livro cadastrado");
+        return ResponseEntity.ok().build();
     }
 }
