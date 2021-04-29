@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UniqueValue {
 
-    String message() default "Este nome de atributo já existe.";
+    String message() default "Valor nome de atributo já existe.";
     Class<?> [] groups() default {};
     Class<? extends Payload> [] payload() default {};
     String fieldName();
