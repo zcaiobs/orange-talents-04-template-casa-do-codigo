@@ -1,6 +1,5 @@
 package br.com.zupacademy.caio.casadocodigo.controller;
 
-import br.com.zupacademy.caio.casadocodigo.domain.Autor;
 import br.com.zupacademy.caio.casadocodigo.domain.AutorRequest;
 import br.com.zupacademy.caio.casadocodigo.repository.AutorRepository;
 import org.springframework.http.ResponseEntity;

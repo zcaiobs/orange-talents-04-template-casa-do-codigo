@@ -1,7 +1,5 @@
 package br.com.zupacademy.caio.casadocodigo.domain;
 
-import br.com.zupacademy.caio.casadocodigo.repository.AutorRepository;
-import br.com.zupacademy.caio.casadocodigo.repository.CategoriaRepository;
 import br.com.zupacademy.caio.casadocodigo.validator.DateFutureValue;
 import br.com.zupacademy.caio.casadocodigo.validator.ExistsValue;
 import br.com.zupacademy.caio.casadocodigo.validator.UniqueValue;
@@ -43,10 +41,17 @@ public class LivroRequest {
         this.autorId = autorId;
     }
 
-    public Livro toLivro(CategoriaRepository categoriaRepository, AutorRepository autorRepository) {
+    public Livro toLivro(Categoria categoria, Autor autor) {
         return new Livro(this.titulo, this.resumo, this.sumario,
                 this.preco, this.pagina, this.isbn, this.publicacao,
-                categoriaRepository.findById(this.categoriaId).get(),
-                autorRepository.findById(autorId).get());
+                categoria, autor);
+    }
+
+    public Long getCategoriaId() {
+        return categoriaId;
+    }
+
+    public Long getAutorId() {
+        return autorId;
     }
 }

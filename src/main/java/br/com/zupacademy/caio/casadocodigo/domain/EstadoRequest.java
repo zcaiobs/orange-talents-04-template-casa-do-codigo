@@ -1,6 +1,5 @@
 package br.com.zupacademy.caio.casadocodigo.domain;
 
-import br.com.zupacademy.caio.casadocodigo.repository.PaisRepository;
 import br.com.zupacademy.caio.casadocodigo.validator.ExistsValue;
 import br.com.zupacademy.caio.casadocodigo.validator.UniqueValue;
 import javax.validation.constraints.NotBlank;
@@ -25,8 +24,8 @@ public class EstadoRequest {
         this.pais = pais;
     }
 
-    public Estado toEstado(PaisRepository paisRepository) {
+    public Estado toEstado(Pais pais) {
         System.out.println( pais);
-        return new Estado(this.nome, paisRepository.findById(pais).get());
+        return new Estado(this.nome, pais);
     }
 }
