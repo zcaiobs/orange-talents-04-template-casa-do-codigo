@@ -9,8 +9,24 @@ spring:
     show-sql: true
     open-in-view: off
 
+management:
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "info,health,prometheus"
+  metrics:
+    tags:
+      aplicacao: ${NOME_DA_APLICACAO:serviço de proposta}
+      ambiente: ${AMBIENTE:desenvolvimento}
+
 server:
   error:
     include-stacktrace: never
+  port: 8080
 
 

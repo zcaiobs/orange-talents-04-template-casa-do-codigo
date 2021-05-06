@@ -15,10 +15,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @RestController
 @RequestMapping("/api")
 public class LivroBuscarController {
 
+    private final Logger logger = LoggerFactory.getLogger(LivroBuscarController.class);
     private final LivroRepository livroRepository;
 
     LivroBuscarController(LivroRepository livroRepository) {

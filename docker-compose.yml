@@ -1,12 +1,32 @@
 services:
   mysql:
     image: mysql
+    container_name: mysql-docker
     ports:
     - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes:
     - casa_do_codigo:/var/lib/mysql
+    networks:
+      - mysql-compose-network
+
+#  casa-do-codigo:
+#    build:
+#      dockerfile: ./Dockerfile
+#      context: .
+#    image: casa-do-codigo
+#    container_name: casa-do-codigo
+#    ports:
+#    - 9000:9000
+#    networks:
+#      - mysql-compose-network
+#    depends_on:
+#      - mysql
+
+networks:
+  mysql-compose-network:
+    driver: bridge
 
 volumes:
   casa_do_codigo:

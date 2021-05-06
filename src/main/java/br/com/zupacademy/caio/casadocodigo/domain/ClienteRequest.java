@@ -16,8 +16,9 @@ public class ClienteRequest {
     @NotBlank @Email
     @UniqueValue(domainClass = Cliente.class, fieldName = "email")
     private final String email;
+    @NotBlank
     @CPFouCNPJ
-    @NotBlank @UniqueValue(domainClass = Cliente.class, fieldName = "documento")
+    @UniqueValue(domainClass = Cliente.class, fieldName = "documento")
     private final String documento; // cfp ou cnpj
     @NotBlank
     private final String endereco;
